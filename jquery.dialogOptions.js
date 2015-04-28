@@ -160,7 +160,9 @@ $.ui.dialog.prototype.open = function () {
         // else close on modal click
     } else if (self.options.clickOut && self.options.modal) {
         $('.ui-widget-overlay').click(function (e) {
-            self.close();
+            if (self.options.closeOnEscape) {
+                self.close();
+            }
         });
     }
 
